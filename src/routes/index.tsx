@@ -2,12 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SmoothScroll } from "@/components/vikky/SmoothScroll";
 import { Header } from "@/components/vikky/Header";
 import { Hero } from "@/components/vikky/Hero";
+import { Manifesto } from "@/components/vikky/Manifesto";
 import { LessonSection } from "@/components/vikky/LessonSection";
 import { ParentsSection } from "@/components/vikky/ParentsSection";
 import { FaqSection } from "@/components/vikky/FaqSection";
 import { StartSection } from "@/components/vikky/StartSection";
 import { Footer } from "@/components/vikky/Footer";
-import { PHOTOS } from "@/components/vikky/content";
 
 const TITLE = "Vikky Bruhh: the tutor that shows the working";
 const DESC =
@@ -21,9 +21,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: PHOTOS.deskShare },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: PHOTOS.deskShare },
     ],
   }),
   component: Index,
@@ -32,9 +30,11 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <SmoothScroll>
+      <div className="grain" aria-hidden />
       <Header />
       <main>
         <Hero />
+        <Manifesto />
         <LessonSection />
         <ParentsSection />
         <FaqSection />

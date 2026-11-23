@@ -33,3 +33,4 @@ use the editor.
 - Landing page sections live in `src/components/vikky/`, with all copy in `content.ts` so text changes stay in one file.
 - Smooth scrolling uses Lenis via `SmoothScroll` (loaded in an effect); in-page jumps go through `useScrollTo()` so Lenis and native fallback stay in sync.
 - Framer Motion keyframe arrays (3+ values) must use tween transitions, never `type: "spring"`, which throws at runtime.
+- Reusable scroll/motion effects (split headings, text reveal, velocity marquee, spotlight, tilt, count-up, parallax) live in `src/components/vikky/effects.tsx`; sections compose them instead of re-implementing motion.

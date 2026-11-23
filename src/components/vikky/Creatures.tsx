@@ -26,13 +26,13 @@ export function CreatureStrip() {
   return (
     <div>
       <div className="flex flex-wrap items-center justify-between gap-4 px-5 sm:px-8">
-        <p className="max-w-xl text-sm text-ink-soft">
+        <p className="max-w-xl text-sm text-foam-dim">
           Six fuzzy creatures sit along the bottom of the footer. Drag them around, or click one to make
           it hop.
         </p>
         <button
           onClick={() => handles.current.forEach((h, i) => h?.drop(i * 0.08))}
-          className="cursor-pointer rounded-full border border-bronze/35 bg-paper px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-bronze/60"
+          className="cursor-pointer rounded-full bg-foam px-4 py-2 text-sm font-semibold text-espresso transition-colors hover:bg-caramel"
         >
           Drop them again
         </button>
@@ -46,7 +46,7 @@ export function CreatureStrip() {
             </filter>
           </defs>
         </svg>
-        <div className="absolute inset-x-0 bottom-0 h-px bg-hairline" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-line" />
         {KINDS.map((k, i) => (
           <Creature
             key={i}
@@ -167,33 +167,33 @@ function CreatureArt({ kind, blink }: { kind: Kind; blink: boolean }) {
         <ellipse cx={68} cy={vbH - 4} rx={11} ry={5} />
       </g>
       {extra === "antenna" && (
-        <g stroke="var(--ink)" strokeWidth={2.4} strokeLinecap="round" fill="none">
+        <g stroke="var(--espresso)" strokeWidth={2.4} strokeLinecap="round" fill="none">
           <path d={`M50 ${cy - ry + 2} Q48 ${cy - ry - 14} 56 ${cy - ry - 22}`} />
-          <circle cx={57} cy={cy - ry - 24} r={4} fill="var(--gold)" stroke="none" />
+          <circle cx={57} cy={cy - ry - 24} r={4} fill="var(--caramel)" stroke="none" />
         </g>
       )}
       {extra === "horns" && (
-        <g fill="var(--sand)" stroke="var(--ink)" strokeWidth={1.6} strokeLinejoin="round">
+        <g fill="var(--foam)" stroke="var(--espresso)" strokeWidth={1.6} strokeLinejoin="round">
           <path d={`M28 ${cy - ry + 10} L22 ${cy - ry - 10} L38 ${cy - ry + 4}z`} />
           <path d={`M72 ${cy - ry + 10} L78 ${cy - ry - 10} L62 ${cy - ry + 4}z`} />
         </g>
       )}
       {/* belly sheen */}
-      <ellipse cx={50} cy={cy + ry * 0.35} rx={rx * 0.5} ry={ry * 0.35} fill="var(--paper)" opacity={0.25} />
+      <ellipse cx={50} cy={cy + ry * 0.35} rx={rx * 0.5} ry={ry * 0.35} fill="var(--foam)" opacity={0.25} />
       {/* eyes */}
       {eyeXs.map((ex) => (
         <g key={ex} transform={`translate(${ex} ${eyeY})`}>
           <motion.g animate={{ scaleY: blink ? 0.08 : 1 }} transition={{ duration: 0.08 }}>
-            <ellipse rx={eyeR} ry={eyeR * 1.1} fill="var(--paper)" stroke="var(--ink)" strokeWidth={1.6} />
-            <circle cx={eyeR * 0.15} cy={eyeR * 0.2} r={eyeR * 0.5} fill="var(--ink)" />
-            <circle cx={eyeR * 0.35} cy={-eyeR * 0.1} r={eyeR * 0.16} fill="var(--paper)" />
+            <ellipse rx={eyeR} ry={eyeR * 1.1} fill="var(--foam)" stroke="var(--espresso)" strokeWidth={1.6} />
+            <circle cx={eyeR * 0.15} cy={eyeR * 0.2} r={eyeR * 0.5} fill="var(--espresso)" />
+            <circle cx={eyeR * 0.35} cy={-eyeR * 0.1} r={eyeR * 0.16} fill="var(--foam)" />
           </motion.g>
         </g>
       ))}
       {/* mouth */}
       <path
         d={`M${44} ${eyeY + eyeR + 8} Q50 ${eyeY + eyeR + 14} ${56} ${eyeY + eyeR + 8}`}
-        stroke="var(--ink)"
+        stroke="var(--espresso)"
         strokeWidth={2.2}
         strokeLinecap="round"
         fill="none"

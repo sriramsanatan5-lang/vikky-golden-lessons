@@ -9,10 +9,10 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Vikky design system — "Champagne Gold" (60 / 30 / 10)
- * 60%  canvas:   Soft Cream #F8F1E9 with Sand #E6E2D0 tonal shifts
- * 30%  surfaces: Warm Bronze #8C7356 family — cards, hairlines, deep bronze ink for type
- * 10%  accent:   Rich Gold #C0A24A — CTAs, active steps, fraction highlights, progress
+ * Vikky design system — "Brown Sugar & Cheese Foam" (60 / 30 / 10)
+ * 60%  canvas:   Brown Sugar #5C3520 (+ deep / raised tonal shifts)
+ * 30%  surfaces: Cheese Foam #F2E7D0 — cards, laptop screen, headings, body type
+ * 10%  accent:   Caramel #E3A857 — CTAs, active steps, fraction highlights, study bars, progress
  */
 
 @theme inline {
@@ -48,20 +48,22 @@
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
 
-  /* Vikky extended palette */
-  --color-sand: var(--sand);
-  --color-cream: var(--cream);
-  --color-paper: var(--paper);
-  --color-bronze: var(--bronze);
-  --color-bronze-soft: var(--bronze-soft);
-  --color-ink: var(--ink);
-  --color-ink-soft: var(--ink-soft);
-  --color-gold: var(--gold);
-  --color-gold-deep: var(--gold-deep);
-  --color-gold-wash: var(--gold-wash);
-  --color-hairline: var(--hairline);
-  --color-screen: var(--screen);
-  --color-bezel: var(--bezel);
+  /* Vikky palette */
+  --color-sugar: var(--sugar);
+  --color-sugar-deep: var(--sugar-deep);
+  --color-sugar-raised: var(--sugar-raised);
+  --color-sugar-high: var(--sugar-high);
+  --color-foam: var(--foam);
+  --color-foam-soft: var(--foam-soft);
+  --color-foam-dim: var(--foam-dim);
+  --color-espresso: var(--espresso);
+  --color-espresso-soft: var(--espresso-soft);
+  --color-caramel: var(--caramel);
+  --color-caramel-deep: var(--caramel-deep);
+  --color-caramel-wash: var(--caramel-wash);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-foam-line: var(--foam-line);
   --color-creature-1: var(--creature-1);
   --color-creature-2: var(--creature-2);
   --color-creature-3: var(--creature-3);
@@ -69,11 +71,11 @@
   --color-creature-5: var(--creature-5);
   --color-creature-6: var(--creature-6);
 
-  --color-chart-1: var(--gold);
-  --color-chart-2: var(--bronze);
-  --color-chart-3: var(--sand);
-  --color-chart-4: var(--ink);
-  --color-chart-5: var(--gold-deep);
+  --color-chart-1: var(--caramel);
+  --color-chart-2: var(--foam);
+  --color-chart-3: var(--foam-dim);
+  --color-chart-4: var(--sugar-high);
+  --color-chart-5: var(--caramel-deep);
   --color-sidebar: var(--background);
   --color-sidebar-foreground: var(--foreground);
   --color-sidebar-primary: var(--primary);
@@ -82,69 +84,67 @@
   --color-sidebar-accent-foreground: var(--foreground);
   --color-sidebar-border: var(--border);
   --color-sidebar-ring: var(--ring);
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-spin-slow: spin 22s linear infinite;
 }
 
 :root {
   --radius: 0.875rem;
 
-  /* raw palette */
-  --cream: oklch(0.961 0.013 71.3); /* #F8F1E9 */
-  --sand: oklch(0.911 0.024 96.6); /* #E6E2D0 */
-  --paper: oklch(0.99 0.009 78.3); /* elevated cream */
-  --bronze: oklch(0.572 0.052 70.6); /* #8C7356 */
-  --bronze-soft: oklch(0.83 0.03 75);
-  --ink: oklch(0.255 0.021 66.6); /* deep bronze ink */
-  --ink-soft: oklch(0.43 0.032 70.7);
-  --gold: oklch(0.722 0.113 90.5); /* #C0A24A */
-  --gold-deep: oklch(0.6 0.105 85);
-  --gold-wash: oklch(0.93 0.05 92);
-  --hairline: oklch(0.572 0.052 70.6 / 22%);
-  --screen: oklch(0.985 0.01 80);
-  --bezel: oklch(0.28 0.02 66);
+  --sugar: oklch(0.372 0.065 48.2); /* #5C3520 Brown Sugar */
+  --sugar-deep: oklch(0.299 0.048 41.4); /* #42251A */
+  --sugar-raised: oklch(0.431 0.066 46); /* #6E4430 */
+  --sugar-high: oklch(0.472 0.067 50.3); /* #7A5038 */
+  --foam: oklch(0.931 0.033 85.5); /* #F2E7D0 Cheese Foam */
+  --foam-soft: oklch(0.89 0.042 83.9); /* #E8D9BC */
+  --foam-dim: oklch(0.801 0.039 75.1); /* #CDBBA3 */
+  --espresso: oklch(0.242 0.037 47); /* #2E1A10 */
+  --espresso-soft: oklch(0.449 0.046 50.9); /* #6A4E3E */
+  --caramel: oklch(0.771 0.12 73); /* #E3A857 */
+  --caramel-deep: oklch(0.673 0.122 65.4); /* #C9853A */
+  --caramel-wash: oklch(0.899 0.072 79.8); /* #F7D9A8 */
+  --line: oklch(0.931 0.033 85.5 / 14%);
+  --line-strong: oklch(0.931 0.033 85.5 / 30%);
+  --foam-line: oklch(0.242 0.037 47 / 14%);
 
-  --creature-1: oklch(0.722 0.113 90.5);
-  --creature-2: oklch(0.572 0.052 70.6);
-  --creature-3: oklch(0.88 0.04 92);
-  --creature-4: oklch(0.42 0.04 68);
-  --creature-5: oklch(0.8 0.08 80);
-  --creature-6: oklch(0.67 0.07 55);
+  --creature-1: oklch(0.771 0.12 73);
+  --creature-2: oklch(0.931 0.033 85.5);
+  --creature-3: oklch(0.6 0.08 55);
+  --creature-4: oklch(0.82 0.06 80);
+  --creature-5: oklch(0.52 0.07 45);
+  --creature-6: oklch(0.7 0.1 60);
 
-  /* shadcn mapping */
-  --background: var(--cream);
-  --foreground: var(--ink);
-  --card: var(--paper);
-  --card-foreground: var(--ink);
-  --popover: var(--paper);
-  --popover-foreground: var(--ink);
-  --primary: var(--gold);
-  --primary-foreground: var(--ink);
-  --secondary: var(--sand);
-  --secondary-foreground: var(--ink);
-  --muted: oklch(0.935 0.018 80);
-  --muted-foreground: oklch(0.47 0.035 70);
-  --accent: var(--gold-wash);
-  --accent-foreground: var(--ink);
-  --destructive: oklch(0.577 0.2 27);
-  --destructive-foreground: var(--paper);
-  --border: var(--hairline);
-  --input: oklch(0.572 0.052 70.6 / 30%);
-  --ring: var(--gold);
+  --background: var(--sugar);
+  --foreground: var(--foam);
+  --card: var(--foam);
+  --card-foreground: var(--espresso);
+  --popover: var(--foam);
+  --popover-foreground: var(--espresso);
+  --primary: var(--caramel);
+  --primary-foreground: var(--espresso);
+  --secondary: var(--sugar-raised);
+  --secondary-foreground: var(--foam);
+  --muted: var(--sugar-raised);
+  --muted-foreground: var(--foam-dim);
+  --accent: var(--caramel-wash);
+  --accent-foreground: var(--espresso);
+  --destructive: oklch(0.62 0.2 27);
+  --destructive-foreground: var(--foam);
+  --border: var(--line);
+  --input: var(--line-strong);
+  --ring: var(--caramel);
 
-  --shadow-soft: 0 1px 0 oklch(1 0 0 / 70%) inset, 0 1px 2px oklch(0.255 0.021 66.6 / 6%),
-    0 12px 32px -12px oklch(0.255 0.021 66.6 / 18%);
-  --shadow-lift: 0 1px 0 oklch(1 0 0 / 80%) inset, 0 2px 6px oklch(0.255 0.021 66.6 / 8%),
-    0 30px 60px -24px oklch(0.255 0.021 66.6 / 30%);
-  --shadow-gold: 0 10px 30px -10px oklch(0.722 0.113 90.5 / 60%);
-  --gradient-gold: linear-gradient(135deg, oklch(0.78 0.11 92), var(--gold) 45%, var(--gold-deep));
-  --gradient-canvas: radial-gradient(1200px 600px at 80% -10%, oklch(0.93 0.05 92 / 60%), transparent 60%);
+  --shadow-soft: 0 1px 0 oklch(1 0 0 / 35%) inset, 0 12px 30px -14px oklch(0.15 0.03 45 / 55%);
+  --shadow-lift: 0 1px 0 oklch(1 0 0 / 45%) inset, 0 40px 80px -30px oklch(0.12 0.03 45 / 75%);
+  --shadow-caramel: 0 14px 40px -12px oklch(0.771 0.12 73 / 55%);
+  --gradient-caramel: linear-gradient(135deg, oklch(0.84 0.1 80), var(--caramel) 50%, var(--caramel-deep));
+  --gradient-glow: radial-gradient(900px 520px at 50% 0%, oklch(0.472 0.067 50.3 / 85%), transparent 70%);
 }
 
 @layer base {
   * {
     border-color: var(--color-border);
-  }
-  html {
-    scroll-behavior: auto;
   }
   body {
     background-color: var(--color-background);
@@ -161,8 +161,8 @@
     font-optical-sizing: auto;
   }
   ::selection {
-    background: var(--gold-wash);
-    color: var(--ink);
+    background: var(--caramel);
+    color: var(--espresso);
   }
 }
 
@@ -172,6 +172,11 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
 
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 @utility font-display {
   font-family: var(--font-display);
   letter-spacing: -0.025em;
@@ -180,50 +185,68 @@ html.lenis, html.lenis body { height: auto; }
 
 @utility eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--bronze);
+  color: var(--caramel);
 }
 
-@utility surface {
-  background: var(--paper);
-  border: 1px solid var(--hairline);
-  box-shadow: var(--shadow-soft);
-}
-
-@utility surface-lift {
-  background: var(--paper);
-  border: 1px solid var(--hairline);
+/* Cheese-foam card (30%) */
+@utility foam-card {
+  background: var(--foam);
+  color: var(--espresso);
+  border: 1px solid oklch(1 0 0 / 50%);
   box-shadow: var(--shadow-lift);
 }
 
-@utility inner-rim {
-  box-shadow: inset 0 0 0 1px oklch(1 0 0 / 60%), var(--shadow-soft);
+/* Raised brown-sugar panel */
+@utility sugar-card {
+  background: linear-gradient(180deg, oklch(0.431 0.066 46 / 70%), oklch(0.372 0.065 48.2 / 50%));
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 8%), var(--shadow-soft);
 }
 
-@utility bg-gold-gradient {
-  background: var(--gradient-gold);
+@utility glass {
+  background: oklch(0.299 0.048 41.4 / 55%);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(14px) saturate(1.2);
 }
 
-@utility shadow-gold {
-  box-shadow: var(--shadow-gold);
+@utility bg-caramel-gradient {
+  background: var(--gradient-caramel);
 }
 
-@utility bg-canvas-glow {
-  background-image: var(--gradient-canvas);
+@utility shadow-caramel {
+  box-shadow: var(--shadow-caramel);
 }
 
-@utility paper-grain {
-  background-image: radial-gradient(oklch(0.572 0.052 70.6 / 9%) 1px, transparent 1px);
-  background-size: 18px 18px;
+@utility bg-sugar-glow {
+  background-image: var(--gradient-glow);
+}
+
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px oklch(0.931 0.033 85.5 / 16%);
 }
 
 @utility hatched {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    oklch(0.572 0.052 70.6 / 14%) 0 2px,
-    transparent 2px 7px
-  );
+  background-image: repeating-linear-gradient(-45deg, oklch(0.242 0.037 47 / 16%) 0 2px, transparent 2px 7px);
+}
+
+@utility mask-fade-x {
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+/* Film grain over the whole page */
+@utility grain {
+  &::after {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    z-index: 70;
+    pointer-events: none;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
 }

@@ -17,10 +17,11 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         accent:
-          "rounded-full bg-gold-gradient text-ink font-semibold shadow-gold border border-gold-deep/40 hover:brightness-105",
+          "rounded-full bg-caramel-gradient text-espresso font-semibold shadow-caramel hover:brightness-105",
+        foam: "rounded-full bg-foam text-espresso font-semibold hover:bg-foam-soft",
         quiet:
-          "rounded-full border border-bronze/35 bg-paper/70 text-ink font-semibold hover:bg-paper hover:border-bronze/60",
-        nav: "rounded-full text-ink-soft font-medium hover:text-ink hover:bg-sand/60",
+          "rounded-full border border-line-strong bg-sugar-deep/30 text-foam font-semibold hover:bg-foam/10 hover:border-foam/50",
+        nav: "rounded-full text-foam-dim font-medium hover:text-foam",
       },
       size: {
         default: "h-9 px-4 py-2",
