@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Landing page sections live in `src/components/vikky/`, with all copy in `content.ts` so text changes stay in one file.
+- Smooth scrolling uses Lenis via `SmoothScroll` (loaded in an effect); in-page jumps go through `useScrollTo()` so Lenis and native fallback stay in sync.
+- Framer Motion keyframe arrays (3+ values) must use tween transitions, never `type: "spring"`, which throws at runtime.
